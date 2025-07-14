@@ -35,6 +35,8 @@ Groups and contacts your bot to listen to your "hey goose" command
    CONTACTS=+1124234355,+420121434534
    ```
 
+4. Finally, change `path/to/signal` in routstr_management.yaml to your actual path to this current directory. You can further modify the model and instructions in the same file to your liking. 
+
 ## Testing
 
 Before using with Claude Desktop, you can test the functionality:
