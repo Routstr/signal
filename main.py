@@ -16,8 +16,7 @@ def main():
 
     signal_service = os.environ["SIGNAL_SERVICE"]
     signal_id = os.environ["SIGNAL_ID"]
-    group_id = os.environ["GROUP_ID"]
-    internal_id = os.environ["GROUP_INTERNAL_ID"]
+    group_names = os.environ["GROUP_NAMES"]
     contacts = os.environ["CONTACTS"]
 
     config = {
@@ -29,7 +28,7 @@ def main():
 
     # bot.listen(group_id, internal_id)
 
-    bot.register(GooseCommand(), contacts=[contacts.split(',')], groups=['Testing', "routstr"])
+    bot.register(GooseCommand(), contacts=[contacts.split(',')], groups=[group_names.split(',')])
     bot.start()
 
 if __name__ == "__main__":

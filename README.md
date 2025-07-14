@@ -3,19 +3,36 @@
 This MCP server provides a tool to send messages via Signal using the existing SignalBot infrastructure.
 
 ## Setup
-
-1. Make sure you have the required dependencies installed:
+1. First, you need to have signal-cli running locally and have it signed in with your signal account: 
+(Make sure you have docker installed)
+- Run: 
    ```bash
    cd signal
+   chmod +x run_signal_cli.sh
+   ./run_signal_cli.sh
+   ```
+- Choose 1 to run setup
+then go to this link and link new device using your signal mobile app: http://127.0.0.1:8080/v1/qrcodelink?device_name=local
+
+- Run the bash script again and choose 2 to have your signal-cli running. 
+(Note: You need to use docker ps and docker kill <container> to shut it down as it is running in detached mode)
+   ```bash
+   ./run_signal_cli.sh
+   ```
+
+2. Make sure you have the required dependencies installed:
+(We recommend uv for managing dependencies, install it from [here](https://docs.astral.sh/uv/getting-started/installation/))
+   ```bash
    uv sync
    ```
 
-2. Ensure your `.env` file contains the required Signal configuration:
+3. Ensure your `.env` file contains the required Signal configuration:
+Groups and contacts your bot to listen to your "hey goose" command
    ```
    SIGNAL_SERVICE=127.0.0.1:8080
    SIGNAL_ID=+your_phone_number
-   GROUP_ID=your_group_id
-   GROUP_INTERNAL_ID=your_group_internal_id
+   GROUP_NAMES=group_name1,bitcoin core
+   CONTACTS=+1124234355,+420121434534
    ```
 
 ## Testing
@@ -27,7 +44,7 @@ Before using with Claude Desktop, you can test the functionality:
 Run the direct test script to verify your Signal bot configuration:
 
 ```bash
-cd signal
+cd signal/tests
 python test_signal.py
 ```
 
@@ -42,7 +59,7 @@ This will:
 Test the MCP server functionality:
 
 ```bash
-cd signal
+cd signal/tests
 python test_mcp_client.py
 ```
 
