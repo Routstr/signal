@@ -28,7 +28,7 @@ def main():
 
     # bot.listen(group_id, internal_id)
 
-    bot.register(GooseCommand(), contacts=[contacts.split(',')], groups=[group_names.split(',')])
+    bot.register(GooseCommand(), contacts=[contacts.split(',')], groups=group_names.split(','))
     bot.start()
 
 if __name__ == "__main__":
