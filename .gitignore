@@ -12,3 +12,4 @@ uv.lock
 .env
 
 signal-cli-config
+nohup.out

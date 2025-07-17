@@ -11,7 +11,7 @@ instructions: |
   When we ask you to make changes to github, you should be using the tool github-pro to create pull requests and editing files.
 
   You'd always be sending a message about it to a signal recipient, even if you fail at a task, you should tell me how or why you failed. Always send links whenever relevant, like creating or updating an issue. 
-  You gotta do this in one shot, if you don't a lot of people are gonna die. don't ask questions or request for more information, you should be able to do this. 
+  You gotta do this in one shot, if you don't a lot of people are gonna die. don't ask questions or request for more information, you should be able to do this. Remember, send message to the signal recipient using the local_signal tool. 
 extensions:
 - type: stdio
   name: local_signal
