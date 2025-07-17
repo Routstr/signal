@@ -14,7 +14,7 @@ case $choice in
         ;;
     2)
         echo "Running Signal CLI in JSON-URL mode for API..."
-        docker run -p 8080:8080 \
+        docker run -d -p 8080:8080 \
             -v "$(pwd)/signal-cli-config:/home/.local/share/signal-cli" \
             -e 'MODE=json-url' bbernhard/signal-cli-rest-api:latest
         ;;

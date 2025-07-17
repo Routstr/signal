@@ -32,8 +32,9 @@ class GooseCommand(Command):
         if any(greeting in command.lower() for greeting in ["hey goose", "hello goose", "hi goose"]):
             # result = subprocess.run(["goose", "run", "--no-session", "-t", "Fetch all the issues from Routstr/proxy, Routstr/routstr-chat and Routstr/frontend and summarize it under the heading **Summary of Current Issues** using the tool 'github-pro'. Each repository should get a brief summarize of the current issues. No need to display issues. Show no more than 3 main points per respository and send that output to the recipient "+ group_id + " be sure to format your message in markdown. "], capture_output=True, text=True)
             # result = subprocess.run(["goose", "run", "--no-session", "-t", command+". Here's your signal recipient: "+ group_id + " Be sure to style the message using ** for bold, ` for monospace and * for italics ", "--system", system_prompt], capture_output=True, text=True)
+            result = subprocess.run(["pwd"])
+            print(result.stdout)
+            pwd = result.stdout
             # result = subprocess.run(["goose", "run", "--no-session", "--recipe", "./routstr_management.yaml", "--params", "task=\"" + command+". Here's your signal recipient: "+ group_id + "   Be sure to style the message using ** for bold, ` for monospace and * for italics \""], capture_output=True)
-            result = subprocess.run(["goose", "run", "--no-session", "--recipe", "./routstr_management.yaml", "--params", "task='" + command+"Here's your signal recipient: " + recipient + " Be sure to style the signal message using **bold text** for bold, `code` for monospace and *text* for italics and use numbers when needed. '"], capture_output=True)
-            raw_output = result.stdout
-            print(raw_output)
+            result = subprocess.run(["goose", "run", "--no-session", "--recipe", "./routstr_management.yaml", "--params", "task='" + command+"Here's your signal recipient: " + recipient + " Be sure to style the signal message using **bold text** for bold, `code` for monospace and *text* for italics and use numbers when needed. ", "--params", "path='" + pwd + "'"], capture_output=True)
             return

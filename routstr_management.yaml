@@ -15,9 +15,9 @@ instructions: |
 extensions:
 - type: stdio
   name: local_signal
-  cmd: /path/to/signal/.venv/bin/python
+  cmd: "{{ path }}/.venv/bin/python"
   args:
-  - /path/to/signal/mcp_server.py
+  - "{{ path }}/mcp_server.py"
   envs: {}
   env_keys: []
   timeout: 300
@@ -54,7 +54,7 @@ extensions:
   description: A seperate mcp server that helps with managing github projects
   bundled: null
 settings:
-  goose_provider: openai
+  goose_provider: openrouter
   goose_model: google/gemini-2.5-flash
   temperature: 0.0
 activities:
@@ -71,3 +71,7 @@ parameters:
     input_type: string
     requirement: required
     description: "A required parameter example"
+  - key: path
+    input_type: string
+    requirement: required
+    description: "Path of the local dir"
