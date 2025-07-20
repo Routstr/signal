@@ -35,8 +35,9 @@ class GooseCommand(Command):
             result = subprocess.run(["pwd"], capture_output=True, text=True)
             pwd = result.stdout.strip()
             # result = subprocess.run(["goose", "run", "--no-session", "--recipe", "./routstr_management.yaml", "--params", "task=\"" + command+". Here's your signal recipient: "+ group_id + "   Be sure to style the message using ** for bold, ` for monospace and * for italics \""], capture_output=True)
+            print("got the qeury, "+ command)
             result = subprocess.run(["goose", "run", "--no-session", "--recipe", "./routstr_management.yaml", "--params", "task=" + command+". Here's your signal recipient: " + recipient + " Be sure to style the signal message using **bold text** for bold, `code` for monospace and *text* for italics and use numbers when needed. ", "--params", "path=" + pwd, "--debug"], capture_output=True, text=True)
             ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
             cleaned_output = ansi_escape.sub('', result.stdout)
-            # print(f"Goose command output (cleaned): {cleaned_output}")
+            print(f"Goose command output (cleaned): {cleaned_output}")
             return
