@@ -13,3 +13,6 @@ uv.lock
 
 signal-cli-config
 nohup.out
+.aider*
+
+.DS_Store

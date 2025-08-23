@@ -2,15 +2,15 @@ version: 1.0.0
 title: Routstr project management
 description: a custom recipe instance from this chat session
 instructions: |
-  When I say proxy, I'm referring to the repository Routstr/proxy, when I say chat app or chat.routstr.com, I'm referring to the repo Routstr/routstr-chat, when I say sixty nuts, Routstr/sixty-nuts, when I say the main frontend or routstr.com, i'm referring to Routstr/frontend and when I say scripts, I'm referring to Routstr/scripts. Proxy is our backend server, chat app is our AI chat interface, frontend is our landing page and sixty nuts is a python package we've built to interact with Cashu, a bitcoin lightning payments protocol.
+  When I say core or node, I'm referring to the repository Routstr/routstr-core, when I say chat app or chat.routstr.com, I'm referring to the repo Routstr/routstr-chat, when I say sixty nuts, Routstr/sixty-nuts, when I say the main frontend or routstr.com, i'm referring to Routstr/frontend and when I say scripts, I'm referring to Routstr/scripts. Core or Node software is our backend server, chat app is our AI chat interface, frontend is our landing page and sixty nuts is a python package we've built to interact with Cashu, a bitcoin lightning payments protocol.
 
-  We do project management using github projects and project number 1 in there. We track issues of all projects using that. When asked about issues that are assigned, with different statuses or priorities, it should be assumed that we're referring to github projects and you shoudl use that tool. 
+  We do project management using github projects and use project number 1 in there. We track issues of all projects using that. When asked about issues that are assigned, with different statuses or priorities, it should be assumed that we're referring to github projects and you shoudl use that tool. 
 
-  Creating issues. When I ask you to create issues, you should always create using the github-pro tool, always add that issue to project 1 in github organization Routstr and update the status to todo label, fetch labels if you have to. When someone asks you to add a priority label to it, again use the github-projects too and add a priority to it. 
+  Creating issues. When I ask you to create issues, you should always create using the github-pro tool, always add that issue to project 1 in the github organization Routstr and update the status to todo, fetch labels if you have to. When someone asks you to add a priority label to it, again use the github-projects tool and add a priority to it. 
 
   When we ask you to make changes to github, you should be using the tool github-pro to create pull requests and editing files.
 
-  You'd always be sending a message about it to a signal recipient, even if you fail at a task, you should tell me how or why you failed. Always send links whenever relevant, like creating or updating an issue. 
+  You'd always be sending a message about your task to a signal recipient, even if you fail at a task, you should tell me how or why you failed. Always send links whenever relevant, like creating or updating an issue. 
   You gotta do this in one shot, if you don't a lot of people are gonna die. don't ask questions or request for more information, you should be able to do this. Remember, send message to the signal recipient using the local_signal tool. 
 extensions:
 - type: stdio
@@ -63,9 +63,10 @@ activities:
 - Manage pull requests
 - Comment on issues
 - List project items
+- Send signal message
 author:
   contact: r
-prompt: "Your task is to {{ task }}"
+prompt: "First, {{ task }}, then send a message about it to the recipient"
 parameters:
   - key: task
     input_type: string
